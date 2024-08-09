@@ -1,2 +1,17 @@
-# image-classification-cnn
-This repository contains a project demonstrating the use of Convolutional Neural Networks (CNN) for image classification. The project is built using TensorFlow and Keras and trained on the CIFAR-10 dataset, which consists of small images categorized into 10 different classes, such as airplanes, automobiles, birds, and cats
+# Image Classification with CNN
+
+This project demonstrates the use of Convolutional Neural Networks (CNN) for image classification using the CIFAR-10 dataset.
+
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [Results](#results)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/anton1osdotcom/image-classification-cnn.git
+
