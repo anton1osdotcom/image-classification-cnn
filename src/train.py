@@ -1,5 +1,5 @@
 import tensorflow as tf
-from tensorflow.keras import datasets, layers, models
+from tensorflow.keras import datasets, layers, models, Input
 import matplotlib.pyplot as plt
 
 # Load and preprocess data
@@ -8,11 +8,13 @@ train_images, test_images = train_images / 255.0, test_images / 255.0
 
 # Build the CNN model
 model = models.Sequential([
-    layers.Conv2D(32, (3, 3), activation='relu', input_shape=(32, 32, 3)),
+    Input(shape=(32, 32, 3)),
+    layers.Conv2D(32, (3, 3), activation='relu'),
     layers.MaxPooling2D((2, 2)),
     layers.Conv2D(64, (3, 3), activation='relu'),
     layers.MaxPooling2D((2, 2)),
     layers.Conv2D(64, (3, 3), activation='relu'),
+    layers.MaxPooling2D((2, 2)),
     layers.Flatten(),
     layers.Dense(64, activation='relu'),
     layers.Dense(10)
@@ -28,10 +30,11 @@ history = model.fit(train_images, train_labels, epochs=10,
                     validation_data=(test_images, test_labels))
 
 # Save the model
-model.save('../results/cnn_model.h5')
+model.save('../results/cnn_model.keras')
 
 # Plot the results
 plt.plot(history.history['accuracy'], label='accuracy')
-plt.plot(history.history['val_accuracy'], label = 'val_accuracy')
-plt
+plt.plot(history.history['val_accuracy'], label='val_accuracy')
+plt.legend(loc='lower right')
+plt.show()
 
